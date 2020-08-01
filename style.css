@@ -116,4 +116,5 @@
 
 .content pre:nth-of-type(2) code::-webkit-scrollbar-thumb:active { 
     background-color: var(--color-green-grey-darker);
+    background-image: none;
 }
