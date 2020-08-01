@@ -1,0 +1,119 @@
+:root {
+    --color-grey-lightest: #e9eaeb;
+    --color-grey-lighter: #b1b3b6;
+    --color-grey-light: #828282;
+    --color-grey-medium: #696969;
+    --color-grey-dark: #273238;
+    --color-grey-darker: #333333;
+    --color-blue-lightest: #def3f6;
+    --color-blue-lightest-transparent: rgba(222,243,246,0);
+    --color-blue-light: #32adfd;
+    --color-blue-medium: #377db3;
+    --color-blue-darker: #0064a4;
+    --color-green-light: #ddf2ea;
+    --color-green-darker: #a3cfd1;
+    --color-green-grey: #84a8a9; /* именование ? */
+    --color-green-grey-darker: #4b6162; /* именование ? */
+    --color-teal: #33779d;
+    --color-lightteal: #42abb4;
+    --color-turquoise: #00abbd;
+    --color-moss: #69bb72;
+    --color-grass: #95d445;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+.content code {
+    font-family: 'Rostin',monospace
+}
+
+.content blockquote, .content li, .content pre {
+    position: relative;
+    margin-top: 16px;
+}
+
+.content pre {
+    display: grid;
+    padding: 4px 16px;
+    background-color: var(--color-green-light);
+    background-image: linear-gradient(to right,var(--color-green-light) 0%,var(--color-blue-lightest) 100%)
+}
+
+@media (min-width: 1240px) {
+    .content pre {
+        margin-top:60px;
+        margin-bottom: 60px;
+        padding-left: 36px
+    }
+}
+
+.content pre::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 76px;
+    background-image: linear-gradient(to left,var(--color-blue-lightest) 0%,var(--color-blue-lightest-transparent) 100%);
+    content: ''
+}
+
+.content pre code {
+    display: block;
+    padding: 16px 0;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-green-darker) transparent;
+    -webkit-user-select: all;
+    -moz-user-select: all;
+    user-select: all
+}
+
+.content pre code:focus {
+    -webkit-animation: code-select 100ms step-end forwards;
+    animation: code-select 100ms step-end forwards
+}
+
+@media (min-width: 1240px) {
+    .content pre code {
+        padding: 32px 0;
+    }
+}
+
+.content pre code::-webkit-scrollbar {
+    height: 6px; /* поставила примерно как в мозиле отрисовалось по дефолту, но можно и 8px */
+}
+
+.content pre code::-webkit-scrollbar-thumb {
+    background-color: var(--color-green-darker);
+    /* border-radius: 24px; */ /* Число такое большое. Убрала пока это, в мозиле все-равно нет скругления, но в 1 варианте можно оставить. */
+}
+
+.content pre code::-webkit-scrollbar-thumb:hover { 
+    background-color: var(--color-green-grey);
+}
+
+.content pre code::-webkit-scrollbar-thumb:active { 
+    background-color: var(--color-green-grey-darker);
+}
+
+/* Второй вариант */
+
+.content pre:nth-of-type(2) code::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    background-image: linear-gradient(to top, var(--color-green-darker) 3px, transparent 3px); /* костыльно, наверное... */
+}
+
+.content pre:nth-of-type(2) code:hover::-webkit-scrollbar-thumb {
+    background-color: var(--color-green-darker);
+    background-image: none;
+}
+
+.content pre:nth-of-type(2) code::-webkit-scrollbar-thumb:hover { 
+    background-color: var(--color-green-grey);
+}
+
+.content pre:nth-of-type(2) code::-webkit-scrollbar-thumb:active { 
+    background-color: var(--color-green-grey-darker);
+}
